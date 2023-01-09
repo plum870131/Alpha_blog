@@ -27,7 +27,22 @@ class ArticlesController < ApplicationController
         else
             render 'new' # render該controller內名為'new.html.erb'的模版
         end
-
     end
+
+    def edit
+        @article = Article.find(params[:id])
+    end
+
+    def update
+        # byebug
+        @article = Article.find(params[:id])
+        if @article.update(params.require(:article).permit(:title, :descriptions))
+            flash[:notice] = "Article updated"
+            redirect_to @article
+        else
+            render plain: "hi"
+        end
+    end
+
 
 end
