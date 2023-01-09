@@ -1,0 +1,19 @@
+<h1>Create new Article</h1>
+
+<%# form_with scope: :article, url: "/articles", local: true do |form| %>
+
+
+<%# @article = Article.new in articles_controller.rb %>
+<%= form_with model: @article, local: true, data: { turbo: false } do |form| %> 
+    <p>
+        <%= form.label :title %> <br/>
+        <%= form.text_field :title %> 
+    </p>
+    <p>
+        <%= form.label :descriptions %> <br/>
+        <%= form.text_area :descriptions %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end%>
