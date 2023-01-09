@@ -1,7 +1,20 @@
 <h1>Create new Article</h1>
 
-<%# form_with scope: :article, url: "/articles", local: true do |form| %>
+<%# 確認是否有error %>
+<% if @article.errors.any? %>
+    <p> Can't save article with following errors </p>
+    <ul>
+        <% @article.errors.full_messages.each do |mes| %>
+            <li><%= mes %></li>
+        <% end %>
+    </ul>
+    
+<% end %>
 
+
+
+
+<%# form_with scope: :article, url: "/articles", local: true do |form| %>
 
 <%# @article = Article.new in articles_controller.rb %>
 <%= form_with model: @article, local: true, data: { turbo: false } do |form| %> 
