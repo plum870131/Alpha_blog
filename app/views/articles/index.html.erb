@@ -1,11 +1,16 @@
+<%= link_to "About Page", about_path %> |
+<%= link_to "Home Page", root_path %>
+
 <h1>Listing page</h1>
+
+
 
 <table>
     <thead>
         <tr>
             <th>Title</th>
             <th>Descriptions</th>
-            <th>Actions</th>
+            <th colspan='3'>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -13,8 +18,17 @@
             <tr>
                 <td><%= article.title %></td>
                 <td><%= article.descriptions %></td>
-                <td> holder </td>
+
+                <%# link_to "顯示的描述", link去哪 %>
+                <%#(因為這裡是在loop，所以article_path的id可以透過|article取得|) %>
+                <%# method: :delete 根據routes的verb來動作 %>
+                <td> <%= link_to "Show", article_path(article.id)  %></td> 
+                <td> <%= link_to "Edit", edit_article_path(article.id)  %></td>
+                <td> <%= link_to "Delete", article_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %></td>
             </tr> 
         <% end %>
     </tbody>
 </table>
+<br/>
+
+<%= link_to "New Article", new_article_path %>

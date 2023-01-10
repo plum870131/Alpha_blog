@@ -40,8 +40,17 @@ class ArticlesController < ApplicationController
             flash[:notice] = "Article updated"
             redirect_to @article
         else
-            render plain: "hi"
+            render "edit"
         end
+    end
+
+    def destroy
+
+
+        @article = Article.find(params[:id])
+        @article.destroy
+        # 重新導向至listing page
+        redirect_to articles_path
     end
 
 
