@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
+    before_action :get_article, only: [:show, :edit, :update, :destroy]
+
     def show
-        @article = Article.find(params[:id])
     end
 
     def index
@@ -15,7 +16,7 @@ class ArticlesController < ApplicationController
     def create
         # strong parameters protecting db
         # using params.require.permit to filter out trash
-        @article = Article.new(params.require(:article).permit(:title, :descriptions))
+        @article = Article.new(params_strong_para)
         if @article.save
             # 利用flash的:notice功能跳出提示視窗
             # flash view template at app/vies/layouts/application
@@ -30,13 +31,11 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        @article = Article.find(params[:id])
     end
 
     def update
         # byebug
-        @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title, :descriptions))
+        if @article.update(params_strong_para)
             flash[:notice] = "Article updated"
             redirect_to @article
         else
@@ -45,13 +44,20 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-
-
-        @article = Article.find(params[:id])
         @article.destroy
         # 重新導向至listing page
         redirect_to articles_path
     end
 
+
+    private
+
+    def get_article
+        @article = Article.find(params[:id])
+    end
+
+    def params_strong_para
+        params.require(:article).permit(:title, :descriptions)
+    end
 
 end
