@@ -1,4 +1,27 @@
-<h1>HOME PAGE</h1>
 
-<%= link_to "Articles Listing", articles_path %> | 
-<%= link_to "About Page", about_path %>
+
+<div id = "home-container" class="bg-light rounded m-3 text-center ">
+  <div class="black-filter">
+    <div class="m-5">
+      <h1 class="display-4">Hello, world!</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <a class="btn btn-primary btn-lg m-2" href=<%= articles_path  %> role="button">Articles Listing</a>
+      <a class="btn btn-primary btn-lg m-2" href=<%= about_path %> role="button">About Page</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class = "m-3 d-flex flex-container">
+  <div class="element flex-grow-1 flex-shrink-0">element 1</div>
+  <div class="element">element 2
+    <div>sub element 2</div>
+  </div>
+  <div class="element">element 3</div>
+</div>
+
+
+

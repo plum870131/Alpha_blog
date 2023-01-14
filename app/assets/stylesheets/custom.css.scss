@@ -1,15 +1,52 @@
 // in custom.css.scss
 
-.navbar{
-    background-color: rgb(46, 143, 227) !important;
-}
+// .navbar{
+//     background-color: rgb(219, 87, 61) !important;
+// }
 
 // nav-link為navbar上連結到其他地方的那些element
 .nav-link{
     color: white !important;
 }
 
-// h1 {
-//     color: green;
-//     background-color: blueviolet;
-//   }
+#logo{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+#home-container{
+    background-image: asset-url('home_background.jpg') ;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    color:white;
+    height: 450px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.black-filter{
+    flex-grow: 1;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.flex-container .element{
+    padding: 5px;
+    border: solid;
+}
+
+.flex-container{
+    background-color: grey;
+}
+
+#page-content{
+    flex: 1 0 auto;
+    background-color: rgb(242, 242, 242);
+}
+
+#sticky-footer{
+    flex: 0 0 auto;
+    background-color: grey;
+}
