@@ -13,15 +13,32 @@
 
 <%# @article = Article.new in articles_controller.rb %>
 <%= form_with model: @article, local: true, data: { turbo: false } do |form| %> 
-    <p>
-        <%= form.label :title %> <br/>
-        <%= form.text_field :title %> 
-    </p>
-    <p>
-        <%= form.label :descriptions %> <br/>
-        <%= form.text_area :descriptions %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
+    
+    <form> 
+        <div class="container bg-secondary justify-content-center rounded p-3 shadow">
+            <div class="mb-3 d-flex flex-row">
+                <div class="form-label-article">
+                    <%= form.label :title, class: "form-label" %> 
+                </div>
+                <%= form.text_field :title, class: "flex-grow-1 shadow form-control"  %> 
+                
+            </div>
+            <div class="mb-3 d-flex flex-row">
+                <div class="form-label-article">
+                    <%= form.label :descriptions, class: "form-label" %> 
+                </div>
+                <%= form.text_area :descriptions, rows: 10, class: "flex-grow-1 shadow form-control"%>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                <div>
+                    <%= form.submit class: "btn btn-primary mx-auto " %>
+                </div>
+                <div>
+                    <%= link_to "Cancel", articles_path, class: "btn btn-outline-white mx-auto" %>
+                </div>
+            </div>
+        </div>
+    </form > 
+
 <% end %>
