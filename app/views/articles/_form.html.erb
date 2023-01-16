@@ -1,21 +1,12 @@
-<%# 確認是否有error %>
-<% if @article.errors.any? %>
-    <p> Can't save article with following errors </p>
-    <ul>
-        <% @article.errors.full_messages.each do |mes| %>
-            <li><%= mes %></li>
-        <% end %>
-    </ul>
-    
-<% end %>
 
+<%= render 'shared/errors' %>
 
 
 <%# @article = Article.new in articles_controller.rb %>
 <%= form_with model: @article, local: true, data: { turbo: false } do |form| %> 
     
     <form> 
-        <div class="container bg-secondary justify-content-center rounded p-3 shadow">
+        <div class="container mb-3 bg-secondary justify-content-center rounded p-3 shadow">
             <div class="mb-3 d-flex flex-row">
                 <div class="form-label-article">
                     <%= form.label :title, class: "form-label" %> 
