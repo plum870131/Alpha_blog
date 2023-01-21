@@ -4,7 +4,7 @@
 
     <div class="card text-center m-2 w-75 shadow" >
         <div class="card-header fst-italic">
-            Featured
+            <%= @article.user.name %>
         </div>
         <div class="card-body">
             <h5 class="card-title"><%= link_to @article.title, article_path(@article), class: "text-success" %></h5>

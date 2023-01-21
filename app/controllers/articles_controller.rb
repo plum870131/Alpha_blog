@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
         # strong parameters protecting db
         # using params.require.permit to filter out trash
         @article = Article.new(params_strong_para)
+        @article.user = User.first # 因為還沒設定Users
         if @article.save
             # 利用flash的:notice功能跳出提示視窗
             # flash view template at app/vies/layouts/application
