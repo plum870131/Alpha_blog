@@ -1,11 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the project for me as I go through the Udemy class.
 
-Things you may want to cover:
+Inculde the simple functions of creating user and post articles.
 
-* Ruby version
+<!-- * Ruby version
 
 * System dependencies
 
@@ -21,4 +20,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
