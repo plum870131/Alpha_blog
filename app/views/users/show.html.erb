@@ -1,7 +1,9 @@
 <h1 class="text-center m-3"><%= @user.name %></h1>
 
-<p class="text-center m-1 mb-5">Email: <%= @user.email %></p>
+<p class="text-center m-1 mb-1">Email: <%= @user.email %></p>
+<%= gravatar_for @user, size: 200 %>
 
-<h2 class="text-center m-3">Articles</h2>
+
+<h2 class="text-center m-3 mt-5">Articles</h2>
 
 <%= render 'articles/article' %>
