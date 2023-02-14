@@ -6,7 +6,15 @@ class ArticlesController < ApplicationController
     end
 
     def index
-        @articles = Article.all
+        # @articles = Article.all
+        ## perform a paginated query:
+        @articles = Article.paginate(page: params[:page], per_page: 5)
+
+        # # or, use an explicit "per page" limit:
+        # Post.paginate(page: params[:page], per_page: 30)
+
+        # ## render page links in the view:
+        # <%= will_paginate @posts %>
     end
 
     def new

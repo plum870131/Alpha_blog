@@ -15,11 +15,11 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @articles = @user.articles
+        @articles = @user.articles # 如果太大時instance variable可能會爆掉
     end
 
     def index
-        @users = User.all
+        @users = User.paginate(page: params[:page], per_page: 5)
     end
 
     def edit
