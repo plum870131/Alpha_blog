@@ -1,28 +1,7 @@
 
 <h1 class="text-center m-3">Listing page</h1>
 
-<div class = "container d-flex flex-column align-items-center">
-    <% @articles.each do |article| %>
-        <%# <div class="container"> %>
-            <div class="card text-center m-2 w-75 shadow" >
-                <div class="card-header fst-italic">
-                    <%= article.user.name %>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-success" %></h5>
-                    <p class="card-text"><%= truncate(article.descriptions, length: 100, separator: " ") %></p>
-                    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-                    <%= link_to "Show", article_path(article.id), class: "btn btn-outline-dark" %>
-                    <%= link_to "Edit", edit_article_path(article.id),class: "btn btn-outline-success"  %>
-                    <%= link_to "Delete", article_path(article.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } ,class: "btn btn-outline-danger" %>
-                </div>
-                <div class="card-footer text-muted">
-                    Created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago.
-                </div>
-            </div>
-        <%# </div> %>
-    <% end %>
-</div>
+<%= render 'article' %>
 
 <div class="d-grid gap-2 col-6 mx-auto m-3 " >
     <%= link_to "New Article", new_article_path, class: "btn btn-primary text-light p-3 fs-4" %>
