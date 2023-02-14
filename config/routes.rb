@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get "/articles", to: "articles#index"
   delete "/articles/:id", to: "articles#destroy"
 
+  resources :users, except: 'new'
+  get 'signup', to: 'users#new'
+
 end
